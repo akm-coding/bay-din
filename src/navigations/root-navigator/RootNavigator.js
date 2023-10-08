@@ -1,7 +1,11 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {HOME_SCREEN, SPLASH_SCREEN} from '../../constants/RouteName';
-import {HomeScreen, SplashScreen} from '../../pages';
+import {
+  BAY_DIN_VIEW_SCREEN,
+  HOME_SCREEN,
+  SPLASH_SCREEN,
+} from '../../constants/RouteName';
+import {BayDinViewScreen, HomeScreen, SplashScreen} from '../../pages';
 import React from 'react';
 
 const Stack = createStackNavigator();
@@ -34,6 +38,7 @@ function RootNavigator() {
         }}>
         <Stack.Screen name={SPLASH_SCREEN} component={SplashScreen} />
         <Stack.Screen name={HOME_SCREEN} component={HomeScreen} />
+        <Stack.Screen name={BAY_DIN_VIEW_SCREEN} component={BayDinViewScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

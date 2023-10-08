@@ -1,31 +1,25 @@
-import {View, Text, Image, TextInput} from 'react-native';
-import React from 'react';
+import {
+  View,
+  Text,
+  Image,
+  TextInput,
+  TouchableOpacity,
+  FlatList,
+  ScrollView,
+} from 'react-native';
+import React, {useState} from 'react';
 import {moderateScale} from 'react-native-size-matters';
 import Fonts from '../../styles/Fonts';
 import Feather from 'react-native-vector-icons/Feather';
+import QuestionsCard from '../../components/questions-card/QuestionsCard';
+import {Questions} from '../../data/data';
+import Header from '../../components/header/Header';
+import {BAY_DIN_VIEW_SCREEN} from '../../constants/RouteName';
 
-const Home = () => {
+const Home = ({navigation}) => {
   return (
     <View style={{flex: 1, marginHorizontal: 20}}>
-      <View style={{alignItems: 'center', marginTop: 30}}>
-        <Image
-          style={{
-            width: moderateScale(80, 0.3),
-            height: moderateScale(80, 0.3),
-            borderRadius: 50,
-          }}
-          source={require('../../assets/images/mintheinkha_logo.png')}
-        />
-        <Text
-          style={{
-            color: '#000000',
-            fontFamily: Fonts.bold,
-            fontSize: 20,
-            paddingTop: 20,
-          }}>
-          လက်ထောက်ဗေဒင်
-        </Text>
-      </View>
+      <Header />
       <View
         style={{
           backgroundColor: '#FFFFFF',
@@ -33,12 +27,46 @@ const Home = () => {
           width: '100%',
           height: moderateScale(53, 0.3),
           borderRadius: 20,
-          alignSelf: 'flex-start',
-          justifyContent: 'center',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          flexDirection: 'row',
           paddingLeft: 10,
+          paddingRight: 10,
         }}>
-        <TextInput />
+        <TextInput
+          placeholder="သိလိုသော မေးခွန်းအား ရှာဖွေပါ..."
+          placeholderTextColor="#e8ebe9"
+          style={{
+            flex: 1,
+            fontFamily: Fonts.regular,
+            fontSize: 14,
+          }}
+        />
+        <TouchableOpacity onPress={() => {}} activeOpacity={0.7}>
+          <Feather name="search" size={24} color="black" />
+        </TouchableOpacity>
       </View>
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{paddingBottom: 30}}
+        data={Questions}
+        style={{marginTop: 30}}
+        renderItem={({item}) => {
+          return (
+            <QuestionsCard
+              key={item?.questionNo}
+              questionNumber={item?.questionNo}
+              question={item?.questionName}
+              onCardPress={() =>
+                navigation.navigate(BAY_DIN_VIEW_SCREEN, {
+                  question: item,
+                  title: 'ဗေဒင်',
+                })
+              }
+            />
+          );
+        }}
+      />
     </View>
   );
 };
