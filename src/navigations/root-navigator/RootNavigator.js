@@ -7,6 +7,7 @@ import {
 } from '../../constants/RouteName';
 import {BayDinViewScreen, HomeScreen, SplashScreen} from '../../pages';
 import React from 'react';
+import {StatusBar} from 'react-native';
 
 const Stack = createStackNavigator();
 
@@ -15,6 +16,7 @@ function RootNavigator() {
 
   return (
     <NavigationContainer ref={navigationRef}>
+      <StatusBar backgroundColor="#470114" />
       <Stack.Navigator
         initialRouteName={SPLASH_SCREEN}
         screenOptions={{
