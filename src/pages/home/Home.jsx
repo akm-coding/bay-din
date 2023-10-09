@@ -63,6 +63,7 @@ const Home = ({navigation}) => {
   return (
     <View style={{flex: 1}}>
       <FlatList
+        showsVerticalScrollIndicator={false}
         stickyHeaderIndices={[0]}
         ListHeaderComponent={
           <HeaderComponent

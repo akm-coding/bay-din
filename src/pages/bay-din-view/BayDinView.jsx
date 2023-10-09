@@ -55,7 +55,7 @@ export default function BayDinView({route, navigation}) {
         <FlatList
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{paddingBottom: 20}}
-          numColumns={8}
+          numColumns={9}
           data={numberLists}
           renderItem={({item}) => {
             return (
