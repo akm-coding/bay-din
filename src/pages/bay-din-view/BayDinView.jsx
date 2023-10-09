@@ -5,7 +5,6 @@ import {moderateScale} from 'react-native-size-matters';
 import NumberGrid from '../../components/number-grid/NumberGrid';
 import {Answers, numberLists} from '../../data/data';
 import AnswerResultModal from '../../components/answer-result-modal/AnswerResultModal';
-import {HOME_SCREEN} from '../../constants/RouteName';
 import Fonts from '../../styles/Fonts';
 
 function mm2en(num) {
