@@ -80,8 +80,10 @@ export default function BayDinView({route, navigation}) {
         isOpen={isOpenedModal}
         onBackdropPress={() => setIsOpenedModal(false)}
         onButtonPress={() => {
-          navigation.navigate(HOME_SCREEN);
           setIsOpenedModal(false);
+          setTimeout(() => {
+            navigation.goBack();
+          }, 1000);
         }}
       />
     </>
