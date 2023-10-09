@@ -113,7 +113,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontFamily: Fonts.bold,
     fontSize: 20,
-    paddingTop: 20,
   },
   searchContainer: {
     borderRadius: 20,
