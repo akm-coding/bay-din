@@ -8,33 +8,53 @@ import Fonts from '../../styles/Fonts';
 export default function AnswerResultModal({
   isOpen,
   onBackdropPress,
-  onButtonPress,
+  onBackBtnPress,
+  onRetryBtnPress,
   label,
 }) {
   return (
     <Modal
       isVisible={isOpen}
       onBackdropPress={() => onBackdropPress && onBackdropPress()}>
-      <View style={styles.textWrapper}>
-        <Text style={styles.answer}>အဖြေ</Text>
-        <Text style={styles.label}>{label}</Text>
-        <Button onBtnPress={() => onButtonPress && onButtonPress()} />
+      <View style={styles.mainContainer}>
+        <View style={styles.textWrapper}>
+          <Text style={styles.answer}>အဖြေ</Text>
+          <Text style={styles.label}>{label}</Text>
+        </View>
+        <View style={styles.btnContainer}>
+          <View style={{flex: 0.9}}>
+            <Button
+              label={'ပြန်ကြည့်မယ်'}
+              onBtnPress={() => onRetryBtnPress && onRetryBtnPress()}
+            />
+          </View>
+          <View style={{flex: 0.1}} />
+          <View style={{flex: 0.9}}>
+            <Button
+              label={'နောက်သို့'}
+              onBtnPress={() => onBackBtnPress && onBackBtnPress()}
+            />
+          </View>
+        </View>
       </View>
     </Modal>
   );
 }
 
 const styles = StyleSheet.create({
-  textWrapper: {
+  mainContainer: {
     backgroundColor: '#FFFFFF',
     borderRadius: 20,
-    width: '100%',
-    height: moderateScale(250, 0.3),
+    height: moderateScale(200, 0.3),
     alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingTop: 20,
+    justifyContent: 'center',
+  },
+  textWrapper: {
+    paddingVertical: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
     paddingHorizontal: 20,
-    paddingBottom: 20,
+    flex: 1,
   },
   answer: {color: '#000', fontFamily: Fonts.regular, fontSize: 14},
   label: {
@@ -42,5 +62,11 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.bold,
     fontSize: 16,
     textAlign: 'center',
+  },
+  btnContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    marginHorizontal: 20,
+    alignItems: 'center',
   },
 });

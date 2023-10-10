@@ -3,13 +3,13 @@ import React from 'react';
 import {moderateScale} from 'react-native-size-matters';
 import Fonts from '../../styles/Fonts';
 
-export default function Button({onBtnPress}) {
+export default function Button({onBtnPress, label}) {
   return (
     <TouchableOpacity
       onPress={() => onBtnPress && onBtnPress()}
       activeOpacity={0.7}
       style={styles.back}>
-      <Text style={styles.backText}>နောက်သို့</Text>
+      <Text style={styles.backText}>{label}</Text>
     </TouchableOpacity>
   );
 }

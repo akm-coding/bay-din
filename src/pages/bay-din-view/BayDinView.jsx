@@ -78,7 +78,8 @@ export default function BayDinView({route, navigation}) {
         label={result?.answerResult}
         isOpen={isOpenedModal}
         onBackdropPress={() => setIsOpenedModal(false)}
-        onButtonPress={() => {
+        onRetryBtnPress={() => setIsOpenedModal(false)}
+        onBackBtnPress={() => {
           setIsOpenedModal(false);
           setTimeout(() => {
             navigation.goBack();
